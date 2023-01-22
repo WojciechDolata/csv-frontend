@@ -1,0 +1,52 @@
+﻿<div  *ngIf="!passwordCorrect"> 
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> 
+    <div class="form-group">
+        <label for="username">Login</label>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <div *ngIf="!submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Login jest wymagany</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Hasło</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="!submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Hasło jest wymagane</div>
+        </div>
+        <div *ngIf="submitted && !passwordCorrect" class="invalid-feedback">
+            <div>Hasło lub login jest niepoprawne</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Login
+        </button>
+    </div>
+</form>
+</div>
+
+<div *ngIf="passwordCorrect" class="invalid-feedback">
+    <button (click)="logout()">
+        <span>Wyloguj</span>
+     </button>
+     <h4>Zalogowano jako: admin</h4>
+
+     <input 
+     style="display: none" 
+     type="file" 
+     multiple 
+     (change)="onFileChanged($event)" 
+     #fileInput
+     />
+     <input 
+     type="button" 
+     class="upload-button" 
+     value="Importuj nowe ankiety" 
+     (click)="fileInput.click()" 
+     />
+     <br>
+     <br>
+     <br>
+    <app-data-table></app-data-table>
+</div>

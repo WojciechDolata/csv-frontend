@@ -1,0 +1,5 @@
+sygnaturaCzasowa, ankieteWypelniaCzasowa, 'plecPacjenta', 'wiekPacjenta', 'wyksztalceniePacjent', 'aktywnoscZawodowaPacjenta',
+  'trybPrzyjecia', 'decyzjaLeczenia', 'czasOczekiwania', 'czasFormalnosci', 'zyczliwosc', 'czy_zapoznano', 
+  'sugestie', 'czasOczekiwaniaIp', 'jakoscOpieki', 'jakoscOpiekiPielegniarka', 'warunkiOpieki', 'czystosc',
+  'zapoznanieZKartka', 'sugestieIp', 'czyZna', 'ocenaDostepnosc', 'ocenaPrzekazaniaInformacji', 'poszanowanieIntymnosci',
+  'uwagi', 'dostepnoscPielegniarek', 'zabiegPielegnacyjny'
