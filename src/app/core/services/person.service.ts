@@ -19,11 +19,20 @@ export class PersonService {
 
   private url = 'http://localhost:8080/data';
 
-  getAll() {
-
-    this.persons$.next(this.persons);
-    this.httpClient.get(this.url);
+  getAll(): Observable<Person[]> {
+    const headers = {}; //tu mozesz dac autoryzacje, ale pewnie lepiej miec jakiegos interceptora ktory automatycznie dodaje te headery np.
+    return this.httpClient.get<Person[]>(this.url, {headers});
   }
+  
+  /*
+  nie wiem jak tego uzywasz, ale potem w komponencie mozesz dac
+  let data;
+  
+  load() {
+    personsService.getAll()
+      .subscribe(d -> this.data = d);
+  }
+  */
 
   add(person: Person) {
     this.persons.push(person);
